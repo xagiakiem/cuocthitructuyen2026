@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/PC/Downloads/index_v2_2.html -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Cuộc thi Tìm hiểu Pháp luật xã Gia Kiệm 2026</title>
+<link href="./hoàn thiện_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --red:       #c0392b;
+    --red-dark:  #922b21;
+    --red-light: #fadbd8;
+    --gold:      #d4a017;
+    --gold-light:#fdf3d0;
+    --navy:      #1a2a4a;
+    --navy-mid:  #2c3e6b;
+    --white:     #ffffff;
+    --off-white: #fdfaf5;
+    --grey-100:  #f4f6f9;
+    --grey-200:  #e8edf4;
+    --grey-400:  #adb5bd;
+    --grey-600:  #6c757d;
+    --text:      #1c2438;
+    --shadow-sm: 0 2px 8px rgba(26,42,74,0.08);
+    --shadow-md: 0 6px 24px rgba(26,42,74,0.13);
+    --shadow-lg: 0 16px 48px rgba(26,42,74,0.18);
+    --radius:    12px;
+    --radius-lg: 18px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin: 0;
+    background-image: url("https://lh3.googleusercontent.com/u/0/d/1nt7jcYXS6P1-zMgHRQqrnOjWzpqIBlmK");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--text);
+  }
+
+  /* ── Wrapper ── */
+  .main {
+    width: 100%;
+    max-width: 980px;
+    padding: 0 0 40px;
+    background: transparent;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Phần nội dung bên dưới banner: có nền mờ nhẹ để dễ đọc */
+  .content-area {
+    background: rgba(240, 244, 248, 0.15);
+    backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
+    -webkit-backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.40);
+    flex: 1;
+  }
+
+  /* Banner */
+  .main > div:first-child {
+    position: relative;
+    background: transparent;
+  }
+  .main > div:first-child::after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, var(--red-dark), var(--gold), var(--red-dark));
+  }
+  .main > div:first-child img {
+    display: block;
+    width: 100%;
+  }
+
+  /* ── Info screen ── */
+  #info-screen {
+    text-align: center;
+    padding: 36px 24px 10px;
+  }
+
+  .input-group {
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 36px 36px 28px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .input-group::before {
+    content: '⚖';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 80px;
+    opacity: 0.04;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .input-group h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin: 0 0 24px;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 14px;
+  }
+  .input-group h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 56px; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    border-radius: 2px;
+  }
+
+  .input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 11px 14px;
+    margin-bottom: 16px;
+    border: 1.5px solid var(--grey-200);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--grey-100);
+    color: var(--text);
+    transition: border-color .2s, box-shadow .2s, background .2s;
+    outline: none;
+  }
+  input:focus {
+    border-color: var(--red);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+  }
+  input::placeholder { color: var(--grey-400); }
+
+  .btn-start {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--red-dark), var(--red));
+    color: var(--white) !important;
+    border: none;
+    border-radius: 40px !important;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+    font-size: 16px !important;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(192,57,43,0.35);
+    transition: transform .15s, box-shadow .15s, background .2s;
+    position: relative;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(192,57,43,0.45);
+  }
+  .btn-start:active { transform: translateY(0); }
+
+  /* ── QR Section ── */
+  .qr-section {
+    margin: 28px 24px 0;
+    padding: 20px 24px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-200);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .qr-section p { margin: 0; }
+  .qr-code-img {
+    max-width: 100px;
+    flex-shrink: 0;
+    border: 2px solid var(--grey-200);
+    border-radius: 8px;
+    padding: 4px;
+    background: white;
+    margin-top: 0 !important;
+  }
+
+  /* ── Quiz Screen ── */
+  #quiz-screen { padding: 24px 24px 0; }
+
+  /* Quiz layout */
+  .quiz-container { display: flex; gap: 22px; align-items: flex-start; }
+  .questions-section { flex: 3; }
+
+  /* Sidebar navigation */
+  .navigation-section {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background: var(--white);
+    padding: 18px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-200);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .navigation-section > b {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+
+  /* Question cards */
+  .question-card {
+    margin-bottom: 20px;
+    padding: 22px 24px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 5px solid var(--red);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .2s;
+  }
+  .question-card:hover { box-shadow: var(--shadow-md); }
+  .question-card > b {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Answer options */
+  .answer-option {
+    display: flex;
+    align-items: flex-start;
+    padding: 11px 14px;
+    cursor: pointer;
+    border: 1.5px solid var(--grey-200);
+    margin-bottom: 9px;
+    border-radius: 8px;
+    text-align: left;
+    background: var(--grey-100);
+    transition: background .15s, border-color .15s, box-shadow .15s;
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .answer-option:hover {
+    background: var(--red-light);
+    border-color: var(--red);
+    box-shadow: 0 2px 8px rgba(192,57,43,0.1);
+  }
+  .answer-option input[type="radio"] {
+    margin: 3px 12px 0 0;
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--red);
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  /* Nav grid */
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    margin-top: 14px;
+  }
+  .nav-item {
+    padding: 9px 4px;
+    background: var(--grey-100);
+    border: 1.5px solid var(--grey-200);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy-mid);
+    transition: background .15s, border-color .15s, color .15s, transform .1s;
+  }
+  .nav-item:hover { background: var(--red-light); border-color: var(--red); transform: scale(1.06); }
+  .nav-item.active {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: var(--white);
+    border-color: #1e8449;
+    box-shadow: 0 2px 8px rgba(39,174,96,0.3);
+  }
+
+  /* Submit button */
+  #submit-btn {
+    background: linear-gradient(135deg, #1e8449, #28a745);
+    color: var(--white);
+    border: none;
+    padding: 18px;
+    font-size: 18px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 28px;
+    box-shadow: 0 4px 18px rgba(40,167,69,0.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  #submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(40,167,69,0.45);
+  }
+
+  /* Divider */
+  hr { border: 0; border-top: 1.5px solid var(--grey-200); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .quiz-container { flex-direction: column; }
+    .navigation-section { position: static; order: -1; }
+    .input-group { padding: 26px 20px 22px; }
+    .qr-section { flex-direction: column; text-align: center; margin: 20px 14px 0; }
+    #quiz-screen { padding: 14px 14px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div style="text-align: center; margin-bottom: 20px;">
+   <img src="https://lh3.googleusercontent.com/u/0/d/1CyThZsRTfLN2_2hpKGBx4j0puELcM-SE" alt="Banner Gia Kiệm" style="width:100%;">
+  </div>
+
+  <div class="content-area">
+
+  <div id="info-screen">
+    <div class="input-group">
+      <h2 style="color: #0056b3; text-align: center;">THÔNG TIN THÍ SINH</h2>
+      
+      <label><b>Họ và tên (*):</b></label>
+      <input id="name" type="text" placeholder="Nguyễn Văn A">
+      
+      <label><b>Ngày, tháng, năm sinh (*):</b></label>
+      <input id="birth" type="text" placeholder="dd/mm/yyyy">
+      
+      <label><b>Đơn vị công tác/Địa chỉ (*):</b></label>
+      <input id="address" type="text" placeholder="Ấp/Xã hoặc Cơ quan...">
+      
+      <label><b>Số CCCD hoặc Số định danh (*):</b></label>
+      <input id="cccd" type="text" placeholder="Số thẻ căn cước...">
+      
+      <label><b>Số điện thoại (*):</b></label>
+      <input id="phone" type="text" placeholder="090xxxxxxx">
+      
+      <button class="btn-start" style="width:100%; padding:15px; background:#007bff; color:white; border:none; border-radius:30px; font-weight:bold; cursor:pointer;" onclick="startQuiz()">BẮT ĐẦU THI</button>
+    </div>
+  </div>
+<div class="qr-section">
+      <p style="margin: 0; color: #555; font-weight: bold;">Quét mã QR để biết thêm về quy định thi và giải thưởng</p>
+      <p style="margin: 5px 0; color: #777; font-size: 14px;">(Hoặc để lấy tài liệu tham khảo)</p>
+      <img src="https://lh3.googleusercontent.com/u/0/d/11YBanJ8RN3WlXcp22VaQDlqD15PE_2is" alt="Mã QR Nhóm Zalo" class="qr-code-img">
+    </div>
+
+
+  <div id="quiz-screen" style="display:none;">
+    <div class="quiz-container">
+      <div class="questions-section" id="quiz-content"></div>
+      <div class="navigation-section">
+        <b style="font-family:&#39;Playfair Display&#39;,serif; color:var(--navy); font-size:15px; letter-spacing:0.5px;">TIẾN ĐỘ</b>
+        <div class="nav-grid" id="nav-grid"></div>
+        <hr style="margin:16px 0;">
+        <!-- Timer hiển thị trong sidebar -->
+        <div style="background:linear-gradient(135deg,var(--red-dark),var(--red)); border-radius:10px; padding:12px 8px; margin-bottom:14px;">
+          <div style="color:rgba(255,255,255,0.8); font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px;">⏱ Thời gian còn lại</div>
+          <div id="timer" style="color:#fff; font-family:&#39;Playfair Display&#39;,serif; font-size:28px; font-weight:700; letter-spacing:3px; line-height:1;">20:00</div>
+        </div>
+        <img src="https://lh3.googleusercontent.com/u/0/d/11YBanJ8RN3WlXcp22VaQDlqD15PE_2is" alt="QR Code" style="width:100px; margin-bottom: 10px;">
+        <p style="font-size: 11px; color: #666;">Quét mã để được hỗ trợ</p>
+      </div>
+    </div>
+    <button id="submit-btn" onclick="submitQuiz()" style="margin-top:30px;">NỘP BÀI THI</button>
+  </div>
+
+  <!-- Màn hình kết quả — thay thế alert + showDoneScreen -->
+  <div id="result-screen" style="display:none; text-align:center; padding:60px 24px;">
+    <div style="display:inline-block; background:#fff; padding:44px 52px; border-radius:18px;
+                box-shadow:0 8px 40px rgba(26,42,74,0.15); border-top:5px solid #28a745; max-width:480px; width:100%;">
+      <div style="font-size:64px; margin-bottom:12px;">🎉</div>
+      <h1 style="color:#1a2a4a; font-size:24px; margin:0 0 20px;">BẠN ĐÃ NỘP BÀI THÀNH CÔNG!</h1>
+      <table style="width:100%; border-collapse:collapse; font-size:16px; margin-bottom:20px;">
+        <tbody><tr style="background:#f4f6f9;">
+          <td style="padding:10px 14px; text-align:left; font-weight:600; color:#2c3e6b;">Số câu đúng</td>
+          <td id="res-score" style="padding:10px 14px; text-align:right; font-weight:700; color:#c0392b; font-size:18px;"></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; text-align:left; font-weight:600; color:#2c3e6b;">Tỷ lệ đúng</td>
+          <td id="res-percent" style="padding:10px 14px; text-align:right; font-weight:700; color:#c0392b;"></td>
+        </tr>
+        <tr style="background:#f4f6f9;">
+          <td style="padding:10px 14px; text-align:left; font-weight:600; color:#2c3e6b;">Thời gian làm bài</td>
+          <td id="res-time" style="padding:10px 14px; text-align:right; font-weight:700; color:#2c3e6b;"></td>
+        </tr>
+      </tbody></table>
+      <div id="res-status" style="margin-top:10px; font-size:15px; color:#555; padding:12px;
+           background:#f0faf4; border-radius:8px; border:1px solid #c3e6cb;"></div>
+      <p style="color:#6c757d; font-size:14px; margin:16px 0 0;">Mỗi thí sinh chỉ được thi <b>01 lần</b>.</p>
+    </div>
+  </div>
+
+
+  </div><!-- /.content-area --></div>
+
+<script>
+// ĐƯỜNG DẪN WEB APP CỦA BẠN (Đã sửa đúng link từ file cũ)
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyVuMDFOOTPDhrAsns9GXi53zCRB3LuFAAPha5nFPwtkJ5fIVy2aXPL9U2nd-FfJkFocg/exec";
+
+const questionsBank = [
+  {
+    q: "Để thực hiện thủ tục hành chính qua hình thức dịch vụ công trực tuyến trên Cổng Dịch vụ công Quốc gia, công dân cần truy cập vào địa chỉ nào dưới đây?",
+    a: ["https://dichvucong.gov.vn.", "https://congdichvucong.gov.vn.", "https://dongnai.dichvucong.gov.vn.", "https://dichvucongtructuyen.gov.vn."],
+    correct: 0
+  },
+  {
+    q: "Cổng Dịch vụ công quốc gia là gì?",
+    a: [
+      "Là cổng tích hợp, cung cấp tất cả dịch vụ công trực tuyến theo quy định.",
+      "Là cổng tích hợp thông tin và cung cấp dịch vụ công trực tuyến, tình hình giải quyết, kết quả giải quyết thủ tục hành chính của tất cả các bộ, ngành, địa phương.",
+      "Là cổng tích hợp thông tin và cung cấp dịch vụ công trực tuyến, tình hình giải quyết, kết quả giải quyết thủ tục hành chính của tất cả các bộ, ngành, địa phương trên cơ sở kết nối, truy xuất dữ liệu từ các Hệ thống thông tin giải quyết thủ tục hành chính cấp bộ, cấp tỉnh; tích hợp, cung cấp các dịch vụ trực tuyến khác theo yêu cầu của Chính phủ, Thủ tướng Chính phủ.",
+      "Là cổng tích hợp thông tin và cung cấp dịch vụ công trực tuyến, tình hình giải quyết, kết quả giải quyết thủ tục hành chính của tất cả các bộ, ngành, địa phương trên cơ sở kết nối, truy xuất dữ liệu từ các Hệ thống thông tin giải quyết thủ tục hành chính; tích hợp, cung cấp các dịch vụ trực tuyến khác theo yêu cầu của Chính phủ, Thủ tướng Chính phủ."
+    ],
+    correct: 3
+  },
+  {
+    q: "Nghị định số 118/2025/NĐ-CP ngày 09/6/2025 của Chính phủ quy định tổ chức, cá nhân có yêu cầu giải quyết thủ tục hành chính không được thực hiện các hành vi nào sau đây?",
+    a: [
+      "Xúc phạm uy tín của cơ quan có thẩm quyền; dùng vũ lực, đe dọa dùng vũ lực, xúc phạm danh dự, nhân phẩm của cán bộ, công chức, viên chức trong quá trình hướng dẫn, tiếp nhận, giải quyết và trả kết quả giải quyết thủ tục hành chính.",
+      "Nhận xét, đánh giá khách quan, công bằng, trung thực, đúng pháp luật; đúng thực tế với việc thực hiện nhiệm vụ của cán bộ, công chức, viên chức trong quá trình hướng dẫn, tiếp nhận, giải quyết và trả kết quả giải quyết thủ tục hành chính.",
+      "Vu khống, phản ánh, kiến nghị, khiếu nại, tố cáo, mạo danh người khác để tố cáo sai sự thật, không có căn cứ, không có chứng cứ chứng minh hành vi vi phạm pháp luật của cán bộ, công chức, viên chức.",
+      "Cả A & C."
+    ],
+    correct: 3
+  },
+  {
+    q: "Nguyên tắc nào sau đây không phải là nguyên tắc thực hiện cơ chế một cửa, một cửa liên thông theo quy định tại Nghị định số 118/2025/NĐ-CP ngày 09/6/2025 của Chính phủ?",
+    a: [
+      "Lấy sự hài lòng của tổ chức, cá nhân là thước đo chất lượng và hiệu quả phục vụ của cán bộ, công chức, viên chức và cơ quan có thẩm quyền.",
+      "Làm việc theo chế độ tập thể, quyết định theo đa số.",
+      "Quá trình giải quyết thủ tục hành chính được đôn đốc, kiểm tra, theo dõi, giám sát, đánh giá bằng các phương thức khác nhau trên cơ sở đẩy mạnh ứng dụng công nghệ thông tin.",
+      "Cán bộ, công chức, viên chức, cơ quan có thẩm quyền thực hiện trách nhiệm giải trình về thực thi công vụ trong giải quyết thủ tục hành chính."
+    ],
+    correct: 1
+  },
+  {
+    q: "Kể từ khi nhận được Phiếu yêu cầu bổ sung hồ sơ, tổ chức, cá nhân có bao nhiêu ngày để hoàn thiện hồ sơ?",
+    a: ["07 ngày.", "10 ngày.", "15 ngày.", "20 ngày."],
+    correct: 2
+  },
+  {
+    q: "Tổ chức, cá nhân nộp hồ sơ, nhận kết quả giải quyết thủ tục hành chính thông qua các cách thức nào?",
+    a: [
+      "Trực tiếp tại Bộ phận Một cửa.",
+      "Thông qua dịch vụ bưu chính công ích theo quy định của Thủ tướng Chính phủ, qua thuê dịch vụ của doanh nghiệp, cá nhân hoặc qua ủy quyền theo quy định của pháp luật.",
+      "Trực tuyến tại Cổng Dịch vụ công quốc gia hoặc Ứng dụng định danh quốc gia.",
+      "Tất cả đáp án trên đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Dịch vụ công trực tuyến của cơ quan nhà nước là gì?",
+    a: [
+      "Là hình thức hành chính công mà cơ quan nhà nước cung cấp cho tổ chức, cá nhân, giúp thực hiện thủ tục nhanh chóng, mọi lúc mọi nơi qua Internet.",
+      "Là dịch vụ hành chính công và các dịch vụ khác của cơ quan nhà nước được cung cấp cho các tổ chức, cá nhân trên môi trường mạng.",
+      "Là hình thức thực hiện các giao dịch giữa các doanh nghiệp, tổ chức, công dân với nhà nước nhằm thực hiện các thủ tục hành chính.",
+      "Là các thủ tục hành chính của cơ quan nhà nước được cung cấp cho các tổ chức, cá nhân trên môi trường mạng."
+    ],
+    correct: 1
+  },
+  {
+    q: "Theo quy định tại Nghị định số 42/2022/NĐ-CP ngày 24/6/2022 của Chính phủ thì dịch vụ công trực tuyến của cơ quan nhà nước có những mức độ nào dưới đây?",
+    a: [
+      "Có 2 mức độ: Dịch vụ công trực tuyến toàn trình; Dịch vụ công trực tuyến một phần.",
+      "Có 2 mức độ: Mức độ 1, 2.",
+      "Có 3 mức độ: Mức độ 1, 2, 3.",
+      "Có 4 mức độ: Mức độ 1, 2, 3, 4."
+    ],
+    correct: 0
+  },
+  {
+    q: "Theo quy định tại Nghị định số 42/2022/NĐ-CP ngày 24/6/2022 của Chính phủ thì \"Dịch vụ công trực tuyến toàn trình\" của cơ quan nhà nước là gì?",
+    a: [
+      "Là dịch vụ bảo đảm chỉ cung cấp toàn bộ thông tin việc thực hiện thủ tục hành chính trên môi trường mạng.",
+      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tiếp hoặc qua dịch vụ bưu chính công ích.",
+      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tuyến hoặc qua dịch vụ bưu chính công ích.",
+      "Là dịch vụ bảo đảm cung cấp một phần thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính thực hiện trên môi trường mạng."
+    ],
+    correct: 2
+  },
+  {
+    q: "Cá nhân, tổ chức có thể thực hiện thủ tục hành chính bằng hình thức trực tuyến vào thời gian, địa điểm nào dưới đây?",
+    a: [
+      "Thực hiện bất cứ lúc nào ở nơi thường trú.",
+      "Thực hiện bất cứ lúc nào, địa điểm nào khi thiết bị được kết nối mạng.",
+      "Chỉ thực hiện vào giờ hành chính ở nơi thường trú.",
+      "Chỉ thực hiện vào giờ hành chính ở bất cứ địa điểm nào khi thiết bị được kết nối mạng."
+    ],
+    correct: 1
+  },
+  {
+    q: "Cá nhân, tổ chức có thể thực hiện nộp hồ sơ dịch vụ công trực tuyến bằng thiết bị nào sau đây?",
+    a: ["Chỉ có máy tính để bàn.", "Chỉ có điện thoại thông tin.", "Máy tính, máy tính bảng, Điện thoại thông minh (có kết nối Internet).", "Máy Fax."],
+    correct: 2
+  },
+  {
+    q: "Khi điền thông tin trên Cổng Dịch vụ công Quốc gia, những mục được đánh dấu (*) được hiểu như thế nào?",
+    a: ["Bắt buộc phải điền thông tin.", "Bắt buộc phải điền thông tin bằng chữ in hoa.", "Điền thông tin không dấu.", "Không bắt buộc phải điền thông tin."],
+    correct: 0
+  },
+  {
+    q: "Khi sử dụng dịch vụ công trực tuyến, người dân, doanh nghiệp có những lợi ích gì?",
+    a: [
+      "Tiết kiệm được thời gian, chi phí đi lại; làm chủ được thời gian nộp hồ sơ.",
+      "Theo dõi được trạng thái xử lý của hồ sơ.",
+      "Tránh được tệ nạn phiền hà, quan liêu, nhũng nhiễu.",
+      "Tất cả đáp án trên đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Khi thực hiện thanh toán trực tuyến phí, lệ phí giải quyết thủ tục hành chính thông qua nền tảng thanh toán của Cổng Dịch vụ công Quốc gia, người dân, doanh nghiệp có thể thanh toán thông qua các hình thức nào?",
+    a: ["Ví điện tử (Momo, VNPT Pay, Viettel Pay).", "Mã QR Code.", "Cả A&B đều đúng.", "Cả A&B đều sai."],
+    correct: 2
+  },
+  {
+    q: "Tài khoản nào sau đây là tài khoản duy nhất mà cá nhân có thể dùng để đăng nhập vào Cổng Dịch vụ công quốc gia?",
+    a: ["Tài khoản TikTok.", "Tài khoản Zalo.", "Tài khoản Gmail.", "Tài khoản Định danh điện tử VNeID."],
+    correct: 3
+  },
+  {
+    q: "Công dân Việt Nam thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân tại cơ quan nhà nước có thẩm quyền nào?",
+    a: [
+      "Sở Tư pháp.",
+      "Công an cấp xã, nơi thường trú của công dân Việt Nam.",
+      "Ủy ban nhân dân cấp xã, nơi thường trú của công dân Việt Nam.",
+      "A & C đều đúng."
+    ],
+    correct: 2
+  },
+  {
+    q: "Thời hạn cấp giấy xác nhận tình trạng hôn nhân của cơ quan có thẩm quyền giải quyết là bao nhiêu ngày?",
+    a: ["01 ngày, kể từ ngày tiếp nhận hồ sơ.", "03 ngày, kể từ ngày tiếp nhận hồ sơ.", "05 ngày, kể từ ngày tiếp nhận hồ sơ.", "07 ngày, kể từ ngày tiếp nhận hồ sơ."],
+    correct: 1
+  },
+  {
+    q: "Người chưa thành niên, người đã thành niên mất năng lực hành vi dân sự khi có yêu cầu đăng ký hộ tịch hoặc cấp bản sao trích lục hộ tịch cần phải thông qua đối tượng nào?",
+    a: ["Thông qua người giám hộ.", "Thông qua người đại diện theo pháp luật.", "Thông qua người ủy quyền.", "Thông qua người đại diện theo pháp luật hoặc thông qua người ủy quyền."],
+    correct: 1
+  },
+  {
+    q: "Trường hợp đăng ký hộ tịch nào sau đây yêu cầu công dân phải trực tiếp có mặt để thực hiện?",
+    a: ["Đăng ký kết hôn.", "Đăng ký xác nhận tình trạng hôn nhân.", "Đăng ký khai sinh.", "Đăng ký khai tử."],
+    correct: 0
+  },
+  {
+    q: "Trường hợp đăng ký hộ tịch nào sau đây yêu cầu công dân phải trực tiếp có mặt để thực hiện?",
+    a: ["Đăng ký khai sinh.", "Đăng ký khai tử.", "Đăng ký nhận cha, mẹ, con.", "Đăng ký xác nhận tình trạng hôn nhân."],
+    correct: 2
+  },
+  {
+    q: "Theo Nghị định 123/2015/NĐ-CP, Giấy khai sinh có giá trị pháp lý như thế nào?",
+    a: ["Là giấy tờ hộ tịch gốc của cá nhân.", "Là giấy tờ cá nhân.", "Là giấy tờ chứng minh việc sinh.", "Tất cả đáp án trên đều đúng."],
+    correct: 0
+  },
+  {
+    q: "Thời gian giải quyết thủ tục hành chính \"Đăng ký khai sinh - Đăng ký thường trú - Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\" là bao lâu?",
+    a: [
+      "Không quá 03 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định, trường hợp phải xác minh thì không quá 05 ngày làm việc.",
+      "Không quá 05 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định, trường hợp phải xác minh thì không quá 05 ngày làm việc.",
+      "Trong ngày làm việc, kể từ khi tiếp nhận hồ sơ.",
+      "Tất cả đáp án đều sai."
+    ],
+    correct: 0
+  },
+  {
+    q: "Hồ sơ nào sau đây không phải là thành phần hồ sơ khi thực hiện thủ tục hành chính \"Đăng ký khai sinh - Đăng ký thường trú - Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\"?",
+    a: ["Giấy xác nhận tình trạng hôn nhân.", "Giấy chứng sinh.", "Tờ khai điện tử.", "Cả B & C."],
+    correct: 0
+  },
+  {
+    q: "Cá nhân có thể nộp hồ sơ thủ tục hành chính \"Đăng ký khai sinh - Đăng ký thường trú - Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\" bằng hình thức nào sau đây?",
+    a: [
+      "Nộp hồ sơ tại bảo hiểm xã hội.",
+      "Nộp hồ sơ tại Công an.",
+      "Nộp hồ sơ trực tuyến (truy cập Cổng Dịch vụ công quốc gia hoặc ứng dụng VneID).",
+      "Nộp hồ sơ qua dịch vụ bưu chính."
+    ],
+    correct: 2
+  },
+  {
+    q: "Theo Nghị định số 123/2015/NĐ-CP ngày 15/11/2015 của Chính phủ, ngày, tháng, năm sinh trên giấy khai sinh được xác định như thế nào?",
+    a: ["Theo Dương lịch.", "Theo Âm lịch.", "Theo yêu cầu của công dân.", "Tất cả đáp án trên đều sai."],
+    correct: 0
+  },
+  {
+    q: "Khi đăng ký khai tử, người dân cần cung cấp giấy tờ thể hiện những thông tin nào sau đây?",
+    a: [
+      "Họ, chữ đệm, tên, năm sinh, quê quán của người chết; số định danh cá nhân của người chết (nếu có); Nơi chết; nguyên nhân chết.",
+      "Họ, chữ đệm, tên, năm sinh của người chết; số định danh cá nhân của người chết (nếu có); Nơi chết; nguyên nhân chết; Giờ, ngày, tháng, năm chết theo Dương lịch.",
+      "Họ, chữ đệm, tên, năm sinh của người chết; số định danh cá nhân của người chết (nếu có); Giờ, ngày, tháng, năm chết theo Dương lịch; Nơi chết.",
+      "Tất cả đáp án trên."
+    ],
+    correct: 1
+  },
+  {
+    q: "Công dân Việt Nam đăng ký khai sinh tại cơ quan có thẩm quyền nào?",
+    a: [
+      "UBND xã nơi cư trú của người cha.",
+      "UBND xã nơi cư trú của người mẹ.",
+      "A & B đều đúng.",
+      "A & B đều sai."
+    ],
+    correct: 2
+  },
+  {
+    q: "Người dân được đăng ký lại khai sinh, kết hôn, khai tử khi thỏa mãn các điều kiện nào sau đây?",
+    a: [
+      "Việc khai sinh, kết hôn, khai tử đã được đăng ký tại cơ quan có thẩm quyền của Việt Nam trước ngày 01 tháng 01 năm 2016.",
+      "Người dân bị mất bản chính giấy khai sinh, kết hôn, khai tử.",
+      "Cơ quan có thẩm quyền của Việt Nam, nơi đã được đăng ký khai sinh, kết hôn, khai tử trước đây không còn lưu Sổ hộ tịch.",
+      "Tất cả các đáp án trên đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Khi đăng ký kết hôn, nam giới phải đủ bao nhiêu tuổi?",
+    a: ["Đủ 18 tuổi.", "Đủ 19 tuổi.", "Đủ 20 tuổi.", "Đủ 21 tuổi."],
+    correct: 2
+  },
+  {
+    q: "Khi đăng ký kết hôn, nữ giới phải đủ bao nhiêu tuổi?",
+    a: ["Đủ 18 tuổi.", "Đủ 19 tuổi.", "Đủ 20 tuổi.", "Đủ 21 tuổi."],
+    correct: 0
+  },
+  {
+    q: "Nhà nước Việt Nam chỉ thừa nhận quan hệ hôn nhân như thế nào?",
+    a: [
+      "Quan hệ hôn nhân giữa nam giới và nữ giới.",
+      "Quan hệ hôn nhân giữa những người cùng giới tính.",
+      "A & B đều đúng.",
+      "A & B đều sai."
+    ],
+    correct: 0
+  },
+  {
+    q: "Trường hợp nào sau đây được quyền thay đổi họ?",
+    a: [
+      "Thay đổi họ của người bị lưu lạc đã tìm ra nguồn gốc huyết thống của mình.",
+      "Thay đổi họ cho con theo yêu cầu của cha đẻ, mẹ đẻ hoặc của con khi xác định cha, mẹ cho con.",
+      "Khi người con nuôi thôi làm con nuôi và người này hoặc cha đẻ, mẹ đẻ yêu cầu lấy lại họ cho người đó theo họ của cha đẻ hoặc mẹ đẻ.",
+      "Cả A, B & C đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Trường hợp nào sau đây được quyền thay đổi tên?",
+    a: [
+      "Theo yêu cầu của người có tên mà việc sử dụng tên đó gây nhầm lẫn, ảnh hưởng đến tình cảm gia đình, đến danh dự, quyền, lợi ích hợp pháp của người đó.",
+      "Theo yêu cầu của cha đẻ, mẹ đẻ hoặc người con khi xác định cha, mẹ cho con.",
+      "Thay đổi tên của người bị lưu lạc đã tìm ra nguồn gốc huyết thống của mình.",
+      "Cả A, B & C đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Tổ chức, cá nhân có thể yêu cầu chứng thực ở bất kỳ đâu mà không phụ thuộc vào nơi cư trú, trong các trường hợp sau đây?",
+    a: ["Chứng thực bản sao từ bản chính.", "Chứng thực chữ ký.", "Cả A và B đều đúng.", "Cả A và B đều sai."],
+    correct: 2
+  },
+  {
+    q: "Trường hợp nào sau đây không đủ điều kiện để thực hiện chứng thực bản sao từ bản chính?",
+    a: [
+      "Bản chính do cơ quan, tổ chức có thẩm quyền của nước ngoài cấp đã được hợp pháp hóa lãnh sự theo quy định.",
+      "Bản chính bị tẩy xóa, sửa chữa, thêm, bớt nội dung không hợp lệ.",
+      "Bản chính bị hư hỏng, cũ nát, không xác định được nội dung.",
+      "Cả B & C đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Việc chứng thực chữ ký trên Giấy ủy quyền không được thực hiện trong các trường hợp nào sau đây?",
+    a: [
+      "Ủy quyền nhận hộ lương hưu, bưu phẩm, trợ cấp, phụ cấp.",
+      "Ủy quyền nhờ trông nom nhà cửa.",
+      "Ủy quyền mua, bán đất đai.",
+      "Ủy quyền của thành viên hộ gia đình để vay vốn tại Ngân hàng chính sách xã hội."
+    ],
+    correct: 2
+  },
+  {
+    q: "Chứng thực trong tờ khai lý lịch cá nhân thuộc loại chứng thực nào sau đây?",
+    a: ["Chứng thực bản sao từ bản chính.", "Chứng thực chữ ký.", "Chứng thực chữ ký người dịch.", "Chứng thực hợp đồng, giao dịch."],
+    correct: 1
+  },
+  {
+    q: "Cơ quan thực hiện chứng thực được lập biên bản, giữ lại hồ sơ đối với trường hợp nào sau đây?",
+    a: [
+      "Người yêu cầu chứng thực sử dụng bản chính bị tẩy xóa, thêm bớt, làm sai lệch nội dung.",
+      "Người yêu cầu chứng thực sử dụng giấy tờ giả.",
+      "Người yêu cầu chứng thực sử dụng bản sao có nội dung không đúng với bản chính.",
+      "Tất cả đáp án trên đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Theo Nghị định 168/2025/NĐ-CP ngày 30/6/2025 của Chính phủ, đối tượng nào là chủ hộ kinh doanh?",
+    a: [
+      "Cá nhân đăng ký thành lập hộ kinh doanh.",
+      "Người được các thành viên hộ gia đình ủy quyền làm người đại diện hộ kinh doanh.",
+      "A & B đều đúng.",
+      "A & B đều sai."
+    ],
+    correct: 2
+  },
+  {
+    q: "Hộ kinh doanh được cấp Giấy chứng nhận đăng ký hộ kinh doanh khi có đủ các điều kiện nào sau đây?",
+    a: [
+      "Ngành, nghề kinh doanh không bị cấm đầu tư kinh doanh.",
+      "Tên hộ kinh doanh được đặt theo đúng quy định.",
+      "Có hồ sơ đăng ký hộ kinh doanh hợp lệ; Nộp đủ lệ phí theo quy định của pháp luật về phí và lệ phí.",
+      "Tất cả đáp án trên."
+    ],
+    correct: 3
+  },
+  {
+    q: "Kể từ ngày nhận hồ sơ, cơ quan có thẩm quyền đăng ký kinh doanh cấp xã cấp Giấy chứng nhận đăng ký hộ kinh doanh trong thời hạn bao nhiêu ngày?",
+    a: ["03 ngày.", "03 ngày làm việc.", "05 ngày.", "05 ngày làm việc."],
+    correct: 1
+  },
+  {
+    q: "Chủ hộ kinh doanh có trách nhiệm đăng ký thay đổi nội dung đăng ký hộ kinh doanh, khi thay đổi một trong các nội dung nào sau đây?",
+    a: ["Tên hộ kinh doanh.", "Phương pháp tính thuế.", "Cơ sở vật chất của trụ sở.", "Phương pháp tính bảo hiểm xã hội."],
+    correct: 0
+  },
+  {
+    q: "Chủ hộ kinh doanh có trách nhiệm đăng ký thay đổi nội dung đăng ký hộ kinh doanh, khi thay đổi một trong các nội dung nào sau đây?",
+    a: ["Cơ sở vật chất của trụ sở.", "Vốn kinh doanh.", "Phương pháp tính bảo hiểm xã hội.", "Phương pháp tính thuế."],
+    correct: 1
+  },
+  {
+    q: "Chủ hộ kinh doanh có trách nhiệm đăng ký thay đổi nội dung đăng ký hộ kinh doanh, khi thay đổi một trong các nội dung nào sau đây?",
+    a: ["Phương pháp tính bảo hiểm xã hội.", "Phương pháp tính thuế.", "Thành viên hộ gia đình đăng ký hộ kinh doanh.", "Trang thiết bị."],
+    correct: 2
+  },
+  {
+    q: "Chủ hộ kinh doanh có trách nhiệm đăng ký thay đổi nội dung đăng ký hộ kinh doanh với Cơ quan đăng ký kinh doanh cấp xã trong thời hạn bao nhiêu ngày, kể từ ngày có thay đổi các nội dung theo luật định?",
+    a: ["03 ngày.", "05 ngày.", "07 ngày.", "10 ngày."],
+    correct: 3
+  },
+  {
+    q: "Trường hợp nào sau đây, Cơ quan đăng ký kinh doanh cấp xã từ chối cấp đăng ký hộ kinh doanh?",
+    a: [
+      "Hộ kinh doanh đang trong tình trạng pháp lý \"Không hoạt động tại địa chỉ đã đăng ký\".",
+      "Hộ kinh doanh đã bị Cơ quan đăng ký kinh doanh cấp xã ra thông báo về hành vi vi phạm của hộ kinh doanh thuộc trường hợp thu hồi Giấy chứng nhận đăng ký hộ kinh doanh.",
+      "A & B đều sai.",
+      "A & B đều đúng."
+    ],
+    correct: 3
+  },
+  {
+    q: "Cơ quan đăng ký kinh doanh cấp xã cấp lại Giấy chứng nhận đăng ký hộ kinh doanh trong thời hạn bao nhiêu ngày?",
+    a: ["Trong ngày làm việc, kể từ khi tiếp nhận hồ sơ.", "01 ngày làm việc.", "02 ngày làm việc.", "03 ngày làm việc."],
+    correct: 1
+  },
+  {
+    q: "Trước khi nộp hồ sơ đăng ký chấm dứt hoạt động hộ kinh doanh, hộ kinh doanh có trách nhiệm thực hiện nội dung nào sau đây?",
+    a: ["Thanh toán nợ thuế.", "Thanh toán nợ nghĩa vụ tài chính khác.", "A & B đều sai.", "A & B đều đúng."],
+    correct: 3
+  },
+  {
+    q: "Công dân Việt Nam được hưởng trợ cấp hưu trí xã hội khi có các điều kiện nào sau đây?",
+    a: [
+      "Từ đủ 75 tuổi trở lên.",
+      "Không hưởng lương hưu hoặc trợ cấp bảo hiểm xã hội hằng tháng; hoặc đang hưởng lương hưu hoặc trợ cấp bảo hiểm xã hội hằng tháng thấp hơn mức trợ cấp hưu trí quy định.",
+      "Có văn bản đề nghị hưởng trợ cấp hưu trí xã hội.",
+      "Tất cả đáp án trên."
+    ],
+    correct: 3
+  },
+  {
+    q: "Công dân Việt Nam được hưởng trợ cấp hưu trí xã hội khi có các điều kiện nào sau đây?",
+    a: [
+      "Từ đủ 70 tuổi đến dưới 75 tuổi thuộc hộ nghèo, hộ cận nghèo.",
+      "Không hưởng lương hưu hoặc trợ cấp bảo hiểm xã hội hằng tháng; hoặc đang hưởng lương hưu hoặc trợ cấp bảo hiểm xã hội hằng tháng thấp hơn mức trợ cấp hưu trí quy định.",
+      "Có văn bản đề nghị hưởng trợ cấp hưu trí xã hội.",
+      "Tất cả đáp án trên."
+    ],
+    correct: 3
+  },
+  {
+    q: "Cơ quan nhà nước có thẩm quyền ra quyết định hỗ trợ chi phí mai táng trong thời hạn bao nhiêu ngày, kể từ ngày nhận hồ sơ?",
+    a: ["01 ngày làm việc.", "03 ngày làm việc.", "05 ngày làm việc.", "07 ngày làm việc."],
+    correct: 1
+  },
+  {
+    q: "Chủ tịch Ủy ban nhân dân cấp xã ra quyết định thôi hưởng trợ cấp hưu trí xã hội trong trường hợp nào?",
+    a: [
+      "Đối tượng đang hưởng trợ cấp hưu trí xã hội bị chết.",
+      "Đối tượng đang hưởng trợ cấp hưu trí xã hội không còn đủ điều kiện hưởng trợ cấp hưu trí xã hội theo quy định.",
+      "A & B đều đúng.",
+      "A & B đều sai."
+    ],
+    correct: 2
+  },
+  {
+    q: "Chủ tịch Uỷ ban nhân dân xã ra quyết định chi trả trợ cấp hưu trí xã hội trong thời gian bao lâu, kể từ ngày nhận hồ sơ?",
+    a: ["07 ngày làm việc.", "10 ngày làm việc.", "15 ngày làm việc.", "20 ngày làm việc."],
+    correct: 1
+  },
+  {
+    q: "Nội dung nào sau đây không phải là thành phần hồ sơ thủ tục đề nghị cấp giấy phép xây dựng mới đối với nhà ở riêng lẻ của hộ gia đình, cá nhân?",
+    a: [
+      "Bản vẽ thiết kế xây dựng.",
+      "Đơn đề nghị cấp giấy phép xây dựng.",
+      "Hợp đồng mua, bán đất đai.",
+      "Giấy chứng nhận quyền sử dụng đất được cấp theo quy định của pháp luật về đất đai qua các thời kỳ."
+    ],
+    correct: 2
+  },
+  {
+    q: "Giấy phép xây dựng bị thu hồi trong trường hợp nào?",
+    a: [
+      "Chủ đầu tư không khắc phục việc xây dựng sai với giấy phép xây dựng trong thời hạn ghi trong văn bản xử lý vi phạm theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+      "Giấy phép xây dựng bị rách, nát.",
+      "Giấy phép xây dựng bị mất.",
+      "B & C đúng."
+    ],
+    correct: 0
+  },
+  {
+    q: "Nội dung nào sau đây thuộc thành phần hồ sơ thủ tục cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm?",
+    a: [
+      "Đơn đề nghị cấp Giấy chứng nhận theo Mẫu số 01 Phụ lục I kèm theo Nghị định 155/2018/NĐ-CP.",
+      "Bản sao Giấy chứng nhận đăng ký kinh doanh hoặc Giấy chứng nhận đăng ký doanh nghiệp có ngành nghề phù hợp với loại thực phẩm của cơ sở sản xuất.",
+      "Danh sách người sản xuất thực phẩm, kinh doanh dịch vụ ăn uống đã được tập huấn kiến thức an toàn thực phẩm có xác nhận của chủ cơ sở.",
+      "Tất cả các đáp án trên."
+    ],
+    correct: 3
+  },
+  {
+    q: "Nội dung nào sau đây không thuộc thành phần hồ sơ thủ tục cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm?",
+    a: [
+      "Bản thuyết minh về cơ sở vật chất, trang thiết bị, dụng cụ bảo đảm điều kiện vệ sinh an toàn thực phẩm.",
+      "Hợp đồng cung cấp thực phẩm.",
+      "Danh sách người sản xuất thực phẩm, kinh doanh dịch vụ ăn uống đã được tập huấn kiến thức an toàn thực phẩm.",
+      "Giấy xác nhận đủ sức khỏe của chủ cơ sở và người trực tiếp kinh doanh dịch vụ ăn uống."
+    ],
+    correct: 1
+  },
+  {
+    q: "Sau khi có kết quả thẩm định đạt yêu cầu, cơ quan nhà nước có thẩm quyền cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm trong thời hạn bao nhiêu ngày?",
+    a: ["03 ngày làm việc.", "05 ngày làm việc.", "07 ngày làm việc.", "10 ngày làm việc."],
+    correct: 1
+  },
+  {
+    q: "Kể từ ngày nhận hồ sơ thủ tục cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm, Đoàn thẩm định của cơ quan nhà nước thực hiện công tác thẩm định cơ sở trong thời hạn bao nhiêu ngày?",
+    a: ["15 ngày làm việc.", "10 ngày làm việc.", "07 ngày làm việc.", "05 ngày làm việc."],
+    correct: 0
+  },
+  {
+    q: "Kể từ khi có thông báo yêu cầu bổ sung hồ sơ đối với thủ tục cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm, các cơ sở kinh doanh phải bổ sung, hoàn thiện hồ sơ trong bao nhiêu ngày?",
+    a: ["15 ngày.", "30 ngày.", "45 ngày.", "60 ngày."],
+    correct: 1
+  },
+  {
+    q: "Anh A sinh sống cùng với mẹ và em gái ruột, thường trú tại xã Gia Kiệm, tỉnh Đồng Nai. Anh A hiện đang cần Giấy xác nhận tình trạng hôn nhân. Do tính chất công việc nên anh A không thể nghỉ việc để đến UBND xã Gia Kiệm. Theo bạn, anh A nên giải quyết vấn đề trên như thế nào?",
+    a: [
+      "Anh A có thể ủy quyền cho em gái ruột bằng Văn bản ủy quyền, được chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Anh A nộp trực tuyến tại nhà qua cổng Dịch vụ công quốc gia hoặc ủy quyền cho em gái ruột bằng Văn bản ủy quyền, không phải chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Em gái ruột của anh A đến UBND xã Gia Kiệm thực hiện thủ tục cho anh A, mà không cần Văn bản ủy quyền, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Tất cả các đáp án đều sai."
+    ],
+    correct: 1
+  },
+  {
+    q: "Anh D (quốc tịch Hoa Kỳ) và chị M (quốc tịch Việt Nam) thực hiện thủ tục đăng ký khai sinh cho con tại UBND xã Gia Kiệm, quyết định lựa chọn quốc tịch Việt Nam cho bé. Theo bạn, Anh D và Chị M có cần bổ sung giấy tờ gì không?",
+    a: [
+      "Không cần chuẩn bị giấy tờ gì.",
+      "Có. Văn bản thỏa thuận lựa chọn quốc tịch.",
+      "Có. Văn bản thỏa thuận lựa chọn quốc tịch, có xác nhận của cơ quan có thẩm quyền của nước Hoa Kỳ.",
+      "Có. Văn bản thỏa thuận lựa chọn quốc tịch, có xác nhận của cơ quan có thẩm quyền của Hoa Kỳ và cơ quan có thẩm quyền của Việt Nam."
+    ],
+    correct: 1
+  },
+  {
+    q: "Anh P và chị H thường trú tại xã Gia Kiệm, tỉnh Đồng Nai, hiện đang tạm trú và làm việc tại tỉnh Lâm Đồng. Anh P và Chị H quyết định đến UBND xã Gia Kiệm nộp hồ sơ đăng ký kết hôn vào ngày 15/5/2026. Sáng ngày 15/5/2026, công ty anh P có việc đột xuất. Theo bạn, anh P nên xử lý như thế nào?",
+    a: [
+      "Chị H đến liên hệ UBND xã Gia Kiệm để nộp hồ sơ đăng ký kết hôn.",
+      "Anh P và Chị H ủy quyền cho người thân thích bằng văn bản ủy quyền, được chứng thực để liên hệ UBND xã Gia Kiệm nộp hồ sơ đăng ký kết hôn.",
+      "Anh P và Chị H ủy quyền cho người thân thích bằng văn bản ủy quyền, không cần chứng thực để liên hệ UBND xã Gia Kiệm nộp hồ sơ đăng ký kết hôn.",
+      "Anh P phải dời sang ngày khác, vì Anh P và Chị H phải có mặt trực tiếp thì UBND xã Gia Kiệm mới tiếp nhận hồ sơ nộp đăng ký kết hôn."
+    ],
+    correct: 0
+  },
+  {
+    q: "Bà C đang được hưởng trợ cấp xã hội hằng tháng với mức 700.000 đồng/tháng. Ngày 15/5/2026, UBND xã Gia Kiệm ra quyết định Bà C được hưởng trợ cấp hưu trí xã hội với mức 500.000 đồng/tháng. Theo bạn, tổng mức trợ cấp hằng tháng của bà C là bao nhiêu?",
+    a: [
+      "Bà C chỉ được chọn được hưởng trợ cấp xã hội hằng tháng hoặc được hưởng trợ cấp hưu trí xã hội.",
+      "Bà C được hưởng 1.200.000 đồng/tháng, gồm được hưởng trợ cấp xã hội hằng tháng và được hưởng trợ cấp hưu trí xã hội.",
+      "Bà C chỉ được hưởng mức trợ cấp cao nhất là trợ cấp xã hội hằng tháng, với mức trợ cấp là 700.000 đồng/tháng.",
+      "Tất cả các đáp án trên đều sai."
+    ],
+    correct: 2
+  },
+  {
+    q: "Ngày 10/4/2026, ông D đến Trung tâm Phục vụ hành chính công xã Gia Kiệm để nộp hồ sơ thực hiện trợ cấp hưu trí xã hội. Ngày 13/4/2026, Ông D bị tai nạn giao thông và qua đời. UBND xã Gia Kiệm chưa ban hành quyết định hưởng trợ cấp hưu trí xã hội đối với ông D. Theo bạn, quyền lợi của ông D được hưởng như thế nào?",
+    a: [
+      "Không được hưởng bất kỳ trợ cấp nào.",
+      "Được hưởng trợ cấp hưu trí xã hội trong 03 tháng.",
+      "Không được hưởng trợ cấp hưu trí xã hội, chỉ được hỗ trợ chi phí mai táng.",
+      "Được hưởng trợ cấp hưu trí xã hội trong 03 tháng và được hỗ trợ chi phí mai táng."
+    ],
+    correct: 2
+  },
+  {
+    q: "Theo bạn, trong tờ khai cấp Giấy xác nhận tình trạng hôn nhân với mục đích làm thủ tục mua bán nhà, cách ghi nào sau đây là đúng?",
+    a: [
+      "Giấy này được cấp để làm thủ tục mua bán nhà.",
+      "Giấy này được cấp để làm thủ tục mua bán nhà, có thời hạn trong vòng 06 tháng.",
+      "Giấy này được cấp để làm thủ tục mua bán nhà, không có giá trị sử dụng để đăng ký kết hôn.",
+      "Giấy này được cấp để làm thủ tục mua bán nhà, tại tờ 6 thửa đất 34, địa chỉ UBND xã Gia Kiệm, tỉnh Đồng Nai."
+    ],
+    correct: 2
+  },
+  {
+    q: "Anh A và Chị C thường trú tại xã Gia Kiệm, hiện anh chị đang làm việc tại Thành phố Hồ Chí Minh. Anh A và Chị C mới sinh con và muốn thực hiện thủ tục \"Đăng ký khai sinh – Đăng ký thường trú – Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\" tại UBND xã Gia Kiệm thông qua hình thức nộp hồ sơ trực tuyến. Theo bạn, anh A và Chị C cần phải thực hiện các bước thao tác như thế nào?",
+    a: [
+      "Vào cổng Dịch vụ công quốc gia → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (UBND xã Gia Kiệm) → cơ quan đăng ký thường trú (Công an xã Gia Kiệm) → Cơ quan bảo hiểm xã hội → Điền các thông tin vào biểu mẫu → Đính kèm Giấy chứng sinh → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Vào cổng Dịch vụ công bộ công an → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (UBND xã Gia Kiệm) → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Vào cổng Dịch vụ công quốc gia → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (nơi đang sinh sống Tp. Hồ Chí Minh) → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Tất cả đáp án trên đều đúng."
+    ],
+    correct: 0
+  },
+  {
+    q: "Ông D và ông E cùng nhau đến UBND xã Gia Kiệm để liên hệ thực hiện chứng thực chữ ký trên giấy uỷ quyền, với nội dung Ông D ủy quyền cho ông E nhận tiền bồi thường của ông D. Qua quá trình kiểm tra, công chức nhận thấy ông D không đủ minh mẫn, tỉnh táo, được biết ông D đang hưởng trợ cấp thần kinh tâm thần (dạng tâm thần phân liệt nặng). Theo bạn, việc chứng thực chữ ký trên giấy ủy quyền có được thực hiện không?",
+    a: [
+      "Vẫn thực hiện chứng thực chữ ký trên giấy ủy quyền.",
+      "Vẫn thực hiện chứng thực chữ ký trên giấy ủy quyền, với điều kiện là ông D cam kết đủ nhận thức.",
+      "Không được chứng thực chữ ký trên giấy ủy quyền, do ông D không đủ nhận thức tại thời điểm chứng thực.",
+      "Vẫn thực hiện chứng thực chữ ký trên giấy ủy quyền, với điều kiện là có 02 người chứng kiến."
+    ],
+    correct: 2
+  },
+  {
+    q: "Ngày 15/12/2025, Anh Nguyễn Văn A và chị Trần Thị B đến UBND xã Gia Kiệm để thực hiện thủ tục đăng ký kết hôn. Ngày 18/04/2026, anh A qua đời vì tai nạn lao động, lúc này chị B đang mang thai được 05 tháng. Khi thực hiện thủ tục đăng ký khai sinh cho bé, thông tin về người cha được xác định như thế nào?",
+    a: [
+      "Thông tin về người cha là ông Nguyễn Văn A.",
+      "Phần thông tin về cha được để trống.",
+      "Phần thông tin về cha ghi là không xác định được cha.",
+      "Tất cả đáp án trên đều đúng."
+    ],
+    correct: 0
+  },
+  {
+    q: "Chị C là công dân thường trú tại xã Gia Kiệm. Ngày 15/5/2026, Chị C đến UBND xã Gia Kiệm để thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân, với mục đích kết hôn với chị D (Giới tính Nữ, quốc tịch Hoa Kỳ) tại cơ quan có thẩm quyền của Hoa Kỳ. Theo bạn, hồ sơ của chị C có được UBND xã Gia Kiệm tiếp nhận không?",
+    a: [
+      "Có. UBND xã Gia Kiệm tiếp nhận và giải quyết hồ sơ cấp Giấy xác nhận tình trạng hôn nhân của chị C.",
+      "Không. UBND xã Gia Kiệm từ chối, vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để kết hôn với người cùng giới tính.",
+      "Không. UBND xã Gia Kiệm từ chối, vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để đăng ký kết hôn tại cơ quan có thẩm quyền của nước khác.",
+      "Cả B & C đều đúng."
+    ],
+    correct: 1
+  }
+];
+let shuffled, startTime, countdown;
+let timeLeft = 20 * 60;
+
+function showDoneScreen() {
+  // Ẩn tất cả màn hình, chỉ hiện result-screen
+  var info = document.getElementById("info-screen");
+  var quiz = document.getElementById("quiz-screen");
+  if (info) info.style.display = "none";
+  if (quiz) quiz.style.display = "none";
+  var r = document.getElementById("result-screen");
+  if (r) r.style.display = "block";
+}
+
+// Chặn chuột phải
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Chặn phím tắt
+document.onkeydown = function (e) {
+    if (e.keyCode == 123) return false; // F12
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U (Xem nguồn)
+}
+
+setInterval(function()
+ {
+    debugger;}, 100);
+
+
+function startQuiz() {
+  const name = document.getElementById("name").value.trim();
+  const birth = document.getElementById("birth").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const cccd = document.getElementById("cccd").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if(!name || !birth || !address || !cccd || !phone) {
+    return alert("Vui lòng điền đầy đủ các thông tin có dấu (*)");
+  }
+
+  // Kiểm tra localStorage theo CCCD — chặn thi lại ngay trên trình duyệt
+  if(localStorage.getItem("done_" + cccd)) {
+    return showDoneScreen();
+  }
+
+  const btn = document.querySelector(".btn-start");
+  btn.innerText = "ĐANG KIỂM TRA HỆ THỐNG...";
+  btn.disabled = true;
+
+  // SỬ DỤNG JSONP ĐỂ THÔNG NGHẼN KẾT NỐI
+  const callbackName = 'jsonpCallback_' + Math.round(100000 * Math.random());
+  
+  window[callbackName] = function(data) {
+    delete window[callbackName];
+    const scriptTag = document.getElementById('jsonpScript');
+    if (scriptTag) scriptTag.remove();
+
+    if (data.status === "exists") {
+      alert("Số CCCD này đã tham gia thi trước đó. Mỗi thí sinh chỉ được thi 1 lần!");
+      btn.innerText = "BẮT ĐẦU THI";
+      btn.disabled = false;
+    } else {
+      // VÀO THI THÀNH CÔNG
+      document.getElementById("info-screen").style.display = "none";
+      document.getElementById("quiz-screen").style.display = "block";
+      renderQuiz();
+      startTime = Date.now();
+      countdown = setInterval(updateTimer, 1000);
+    }
+  };
+
+  // Timeout 8 giây: nếu không có phản hồi từ server thì cho vào thi luôn
+  const jsonpTimeout = setTimeout(function() {
+    delete window[callbackName];
+    var old = document.getElementById('jsonpScript');
+    if (old) old.remove();
+    console.warn("Timeout kết nối Google Sheet — cho phép vào thi (sẽ lưu kết quả sau).");
+    document.getElementById("info-screen").style.display = "none";
+    document.getElementById("quiz-screen").style.display = "block";
+    renderQuiz();
+    startTime = Date.now();
+    countdown = setInterval(updateTimer, 1000);
+  }, 8000);
+
+  // Bọc callback gốc để cũng xóa timeout
+  var originalCb = window[callbackName];
+  window[callbackName] = function(data) {
+    clearTimeout(jsonpTimeout);
+    originalCb(data);
+  };
+
+  const script = document.createElement('script');
+  script.id = 'jsonpScript';
+  script.src = `${SCRIPT_URL}?action=checkCCCD&cccd=${encodeURIComponent(cccd)}&callback=${callbackName}`;
+  script.onerror = function() {
+    clearTimeout(jsonpTimeout);
+    delete window[callbackName];
+    // Khi lỗi mạng, vẫn cho vào thi (kết quả sẽ được lưu khi nộp bài)
+    console.warn("Lỗi kết nối khi kiểm tra CCCD — cho phép vào thi.");
+    document.getElementById("info-screen").style.display = "none";
+    document.getElementById("quiz-screen").style.display = "block";
+    renderQuiz();
+    startTime = Date.now();
+    countdown = setInterval(updateTimer, 1000);
+  };
+  document.body.appendChild(script);
+}
+
+
+function updateTimer() {
+  let m = Math.floor(timeLeft/60), s = timeLeft%60;
+  document.getElementById("timer").innerText = `${m}:${s<10?'0':''}${s}`;
+  if(timeLeft <= 0) { 
+    clearInterval(countdown); 
+    submitQuiz(); 
+  }
+  timeLeft--;
+}
+
+function renderQuiz() {
+  const content = document.getElementById("quiz-content");
+  const nav = document.getElementById("nav-grid");
+  content.innerHTML = ""; 
+  nav.innerHTML = "";
+
+  // 1. Tạo bản sao và xáo trộn toàn bộ ngân hàng câu hỏi gốc
+  let allShuffled = [...questionsBank].sort(() => Math.random() - 0.5);
+
+  // 2. Lấy đúng 20 câu đầu tiên sau khi đã đảo vị trí
+  shuffled = allShuffled.slice(0, 20);
+
+  shuffled.forEach((q, i) => {
+    // Giữ nguyên thứ tự câu trả lời, chỉ random câu hỏi
+    let card = document.createElement("div");
+    card.className = "question-card";
+    card.id = "question-box-" + i;
+    
+    let html = `<b>Câu ${i+1}: ${q.q}</b><br><br>`;
+    
+    q.a.forEach((ans, ansIdx) => {
+      const isRight = (ansIdx === q.correct);
+      
+      html += `<label class="answer-option">
+                <input type="radio" name="q${i}" value="${isRight}" onchange="updateNav(${i})">
+                <span>${ans}</span>
+              </label>`;
+    });
+    
+    card.innerHTML = html;
+    content.appendChild(card);
+
+    // Tạo nút số thứ tự bên phải
+    let navBtn = document.createElement("div");
+    navBtn.className = "nav-item";
+    navBtn.id = "nav-item-" + i;
+    navBtn.innerText = i + 1;
+    navBtn.onclick = () => document.getElementById("question-box-"+i).scrollIntoView({behavior: 'smooth'});
+    nav.appendChild(navBtn);
+  });
+}
+
+function updateNav(index) {
+  document.getElementById("nav-item-" + index).classList.add("active");
+}
+
+function submitQuiz() {
+  clearInterval(countdown);
+
+  // Vô hiệu hóa nút nộp bài ngay lập tức để tránh bấm 2 lần
+  var submitBtn = document.getElementById("submit-btn");
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.innerText = "ĐANG NỘP BÀI..."; }
+
+  let correctCount = 0;
+  shuffled.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && selected.value === "true") correctCount++;
+  });
+
+  const totalQ   = shuffled.length;
+  const percent  = ((correctCount / totalQ) * 100).toFixed(2);
+  const timeUsed = Math.floor((Date.now() - startTime) / 1000);
+
+  const payload = {
+    name:       document.getElementById("name").value.trim(),
+    birth:      document.getElementById("birth").value.trim(),
+    address:    document.getElementById("address").value.trim(),
+    cccd:       document.getElementById("cccd").value.trim(),
+    phone:      document.getElementById("phone").value.trim(),
+    score:      `${correctCount}/${totalQ}`,
+    percentage: percent + "%",
+    time:       timeUsed + " giây"
+  };
+
+  // Ghi localStorage ngay để chặn thi lại kể cả khi mạng lỗi
+  localStorage.setItem("done_" + payload.cccd, "true");
+
+  // ── Hiển thị màn hình kết quả NGAY (không dùng alert, không xóa DOM) ──
+  document.getElementById("quiz-screen").style.display = "none";
+  const resultBox = document.getElementById("result-screen");
+  document.getElementById("res-score").innerText      = payload.score;
+  document.getElementById("res-percent").innerText    = payload.percentage;
+  document.getElementById("res-time").innerText       = payload.time;
+  document.getElementById("res-status").innerText     = "⏳ Đang lưu kết quả vào hệ thống...";
+  resultBox.style.display = "block";
+
+  // ── Gửi kết quả: thử JSONP trước, fallback sang fetch nếu lỗi ──
+  var submitAttempted = false;
+
+  function onSubmitSuccess() {
+    if (submitAttempted) return;
+    submitAttempted = true;
+    document.getElementById("res-status").innerHTML =
+      "✅ <b>Kết quả đã được lưu vào hệ thống thành công!</b>";
+  }
+
+  function onSubmitFail() {
+    if (submitAttempted) return;
+    // Thử lại bằng fetch (no-cors) như phương án dự phòng
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function() {
+      submitAttempted = true;
+      document.getElementById("res-status").innerHTML =
+        "✅ <b>Kết quả đã được gửi. Vui lòng chụp màn hình này để lưu lại làm bằng chứng.</b>";
+    }).catch(function() {
+      submitAttempted = true;
+      document.getElementById("res-status").innerHTML =
+        "⚠️ Mất kết nối — không lưu được vào hệ thống.<br>" +
+        "<b style=\'color:red\'>Vui lòng chụp màn hình này và gửi cho Ban Tổ Chức!</b>";
+    });
+  }
+
+  const cbName = "submitCB_" + Math.round(Math.random() * 1e8);
+  const params = Object.keys(payload)
+    .map(function(k) { return encodeURIComponent(k) + "=" + encodeURIComponent(payload[k]); })
+    .join("&");
+
+  // Timeout 10 giây: nếu JSONP không phản hồi thì fallback
+  var submitTimeout = setTimeout(function() {
+    delete window[cbName];
+    var old2 = document.getElementById("_submitScript");
+    if (old2) old2.remove();
+    onSubmitFail();
+  }, 10000);
+
+  window[cbName] = function(resp) {
+    clearTimeout(submitTimeout);
+    delete window[cbName];
+    var old2 = document.getElementById("_submitScript");
+    if (old2) old2.remove();
+    if (resp && resp.status === "success") {
+      onSubmitSuccess();
+    } else {
+      onSubmitFail();
+    }
+  };
+
+  const s = document.createElement("script");
+  s.id  = "_submitScript";
+  s.src = SCRIPT_URL + "?action=submitResult&callback=" + cbName + "&" + params;
+  s.onerror = function() {
+    clearTimeout(submitTimeout);
+    onSubmitFail();
+  };
+  document.body.appendChild(s);
+}</script>
+
+
+</body></html>
