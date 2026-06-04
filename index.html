@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///C:/Users/PC/Downloads/index_new.html -->
+<!-- saved from url=(0042)file:///C:/Users/PC/Downloads/index_6.html -->
 <html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cuộc thi Tìm hiểu Pháp luật xã Gia Kiệm 2026</title>
-<link href="./BẢN PRO_files/css2" rel="stylesheet">
+<link href="file:///C:/Users/PC/Downloads/B%E1%BA%A2N%20PRO_files/css2" rel="stylesheet">
 <style>
 :root {
   --red:        #c0392b;
@@ -206,21 +206,140 @@ body {
 .qr-section p b { color: var(--navy); font-size: 14px; }
 
 /* ═══════════════════════════════════
-   SCREEN 2 — BÀI THI
+   SCREEN 2 — BÀI THI (Modal 1 câu)
    ═══════════════════════════════════ */
-#quiz-screen {
-  display: none;
-  padding: 28px 20px 20px;
+#quiz-screen { display:none; flex-direction:column; min-height:60vh; background:var(--off-white); }
+
+/* Top bar */
+.quiz-topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  padding: 12px 20px;
+  display: flex; align-items: center; gap: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.topbar-timer {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900;
+  color: #fff; letter-spacing: 3px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: color .3s;
+}
+.topbar-timer.warning { color: #fbbf24; }
+.topbar-timer.danger  { color: #f87171; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.topbar-progress-wrap { flex: 1; }
+.topbar-progress-label {
+  display: flex; justify-content: space-between;
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,0.7); margin-bottom: 6px;
+}
+.progress-bar-bg { height:5px; background:rgba(255,255,255,0.2); border-radius:99px; overflow:hidden; }
+.progress-bar-fill { height:100%; background:linear-gradient(90deg,var(--red),var(--gold)); border-radius:99px; width:0%; transition:width .4s; }
+
+/* Modal wrap */
+.question-modal-wrap {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center;
+  padding: 28px 16px 40px;
+  gap: 14px;
 }
 
-.quiz-layout {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 24px;
-  align-items: flex-start;
+/* Modal card */
+.question-modal {
+  width: 100%; max-width: 680px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideIn .25s ease;
+}
+@keyframes slideIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* Modal header */
+.modal-header {
+  background: linear-gradient(135deg, var(--red-dark), var(--red));
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.modal-q-badge {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 700;
+  color: #fff; letter-spacing: .5px;
+}
+.modal-lock {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 13px; font-weight: 700; color: #fff;
+}
+.modal-lock.unlocked { background: rgba(39,174,96,0.4); }
+.lock-icon { font-size: 14px; }
+
+/* Question text */
+.modal-question-text {
+  padding: 22px 24px 16px;
+  font-size: 15.5px; font-weight: 600;
+  line-height: 1.7; color: var(--navy);
+  border-bottom: 1.5px solid var(--grey-200);
 }
 
-/* === QUESTION CARDS === */
+/* Options */
+.modal-options {
+  padding: 16px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.modal-opt {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--grey-200);
+  background: var(--grey-100);
+  cursor: pointer;
+  font-size: 14.5px; font-weight: 500;
+  color: var(--text); line-height: 1.55;
+  transition: all .15s;
+  user-select: none;
+}
+.modal-opt:hover:not(.locked-opt) { border-color: var(--red); background: var(--red-light); }
+.modal-opt.selected { border-color: var(--red); background: var(--red-light); color: var(--red-dark); font-weight: 700; }
+.modal-opt.locked-opt { cursor: not-allowed; opacity: .5; }
+.opt-letter-badge {
+  min-width: 26px; height: 26px; border-radius: 50%;
+  background: var(--grey-200);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800;
+  color: var(--navy-mid); flex-shrink: 0; margin-top: 1px;
+}
+.modal-opt.selected .opt-letter-badge { background: var(--red); color: #fff; }
+
+/* Modal footer */
+.modal-footer {
+  padding: 14px 20px;
+  border-top: 1.5px solid var(--grey-200);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.modal-btn-prev, .modal-btn-next {
+  padding: 10px 20px; border-radius: 10px; border: none;
+  font-family: 'Lexend', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.modal-btn-prev { background: var(--grey-100); color: var(--navy-mid); border: 1.5px solid var(--grey-200); }
+.modal-btn-prev:hover { background: var(--grey-200); }
+.modal-btn-prev:disabled { opacity:.35; cursor:not-allowed; }
+.modal-btn-next { background: linear-gradient(135deg, var(--red-dark), var(--red)); color: #fff; box-shadow: 0 3px 12px rgba(192,57,43,0.3); }
+.modal-btn-next:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(192,57,43,0.4); }
+.modal-btn-next:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+
+/* Dot nav */
+.modal-dot-row { display:flex; flex-wrap:wrap; gap:5px; justify-content:center; flex:1; padding:0 8px; }
+.modal-dot { width:10px; height:10px; border-radius:50%; background:var(--grey-200); border:1.5px solid var(--grey-300); cursor:pointer; transition:all .15s; flex-shrink:0; }
+.modal-dot.answered { background:#27ae60; border-color:#1e8449; }
+.modal-dot.current  { background:var(--red); border-color:var(--red-dark); transform:scale(1.3); }
+.modal-dot:hover    { transform:scale(1.3); }
+
+/* === QUESTION CARDS (cũ - giữ lại phòng review) === */
 .questions-col {}
 
 .question-card {
@@ -326,18 +445,7 @@ body {
   color: rgba(255,255,255,0.6);
   margin-bottom: 6px;
 }
-#timer-display {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: 4px;
-  line-height: 1;
-  transition: color .3s;
-}
-#timer-display.warning { color: #fbbf24; }
-#timer-display.danger { color: #f87171; animation: pulse 1s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+/* timer now in .topbar-timer */
 
 /* Progress */
 .progress-block {
@@ -699,7 +807,7 @@ body {
     </div>
 
     <div class="qr-section">
-      <img src="https://lh3.googleusercontent.com/u/0/d/11YBanJ8RN3WlXcp22VaQDlqD15PE_2is" alt="QR Nhóm Zalo">
+      <img src="https://lh3.googleusercontent.com/u/0/d/11YBanJ8RN3WlXcp22VaQDlqD15PE_2is" alt="Mã QR Nhóm Zalo" class="qr-code-img">
       <div>
         <p><b>Quét mã QR để biết thêm về quy định thi và giải thưởng</b></p>
         <p style="margin-top:5px;">Hoặc để lấy tài liệu tham khảo và tham gia nhóm hỗ trợ</p>
@@ -709,44 +817,56 @@ body {
 
   <!-- ══════════ SCREEN 2: BÀI THI ══════════ -->
   <div id="quiz-screen">
-    <div class="quiz-layout">
 
-      <!-- Cột câu hỏi -->
-      <div class="questions-col" id="quiz-content"></div>
+    <!-- Timer + progress bar luôn hiển thị trên cùng -->
+    <div class="quiz-topbar">
+      <div class="topbar-timer" id="timer-display">20:00</div>
+      <div class="topbar-progress-wrap">
+        <div class="topbar-progress-label">
+          <span>Câu <span id="q-cur-num">1</span> / <span id="q-total-num">20</span></span>
+          <span id="progress-text">0 / 20 đã trả lời</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </div>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="sidebar-card">
-          <!-- Timer -->
-          <div class="timer-block">
-            <div class="timer-label">⏱ Thời gian còn lại</div>
-            <div id="timer-display">20:00</div>
-          </div>
-          <!-- Progress -->
-          <div class="progress-block">
-            <div class="progress-header">
-              <span>Tiến độ</span>
-              <span id="progress-text">0 / 20</span>
-            </div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="progress-fill"></div>
-            </div>
-          </div>
-          <!-- Nav grid -->
-          <div class="nav-block">
-            <div class="nav-block-title">Câu hỏi — bấm để di chuyển</div>
-            <div class="nav-grid" id="nav-grid"></div>
+    <!-- Hộp câu hỏi trung tâm -->
+    <div class="question-modal-wrap">
+      <div class="question-modal" id="question-modal">
+
+        <!-- Số câu + khóa đọc đề -->
+        <div class="modal-header">
+          <div class="modal-q-badge" id="modal-q-badge">Câu 1 / 20</div>
+          <div class="modal-lock" id="modal-lock">
+            <span class="lock-icon">🔒</span>
+            <span id="lock-countdown">15</span>s
           </div>
         </div>
 
-        <div class="unanswered-warn" id="unanswered-warn">
-          ⚠️ Bạn còn <b id="unanswered-count"></b> câu chưa trả lời. Bạn có chắc muốn nộp bài?
+        <!-- Nội dung câu hỏi -->
+        <div class="modal-question-text" id="modal-question-text"></div>
+
+        <!-- Đáp án -->
+        <div class="modal-options" id="modal-options"></div>
+
+        <!-- Nút điều hướng -->
+        <div class="modal-footer">
+          <button class="modal-btn-prev" id="btn-prev" onclick="prevQuestion()">← Câu trước</button>
+          <div class="modal-dot-row" id="modal-dots"></div>
+          <button class="modal-btn-next" id="btn-next" onclick="nextQuestion()">Câu sau →</button>
         </div>
 
-        <button class="btn-submit" id="submit-btn" onclick="handleSubmitClick()">NỘP BÀI THI</button>
       </div>
 
+      <!-- Nút nộp bài -->
+      <div class="unanswered-warn" id="unanswered-warn">
+        ⚠️ Bạn còn <b id="unanswered-count"></b> câu chưa trả lời. Bạn có chắc muốn nộp bài?
+      </div>
+      <button class="btn-submit" id="submit-btn" onclick="handleSubmitClick()">NỘP BÀI THI</button>
     </div>
+
   </div>
 
   <!-- ══════════ SCREEN 3: KẾT QUẢ ══════════ -->
@@ -807,7 +927,7 @@ body {
 
 <script>
 const questionsBank = [
-  {
+ {
     q: "Để thực hiện thủ tục hành chính qua hình thức dịch vụ công trực tuyến trên Cổng Dịch vụ công Quốc gia, công dân cần truy cập vào địa chỉ nào dưới đây?",
     a: ["https://dichvucong.gov.vn.", "https://congdichvucong.gov.vn.", "https://dongnai.dichvucong.gov.vn.", "https://dichvucongtructuyen.gov.vn."],
     correct: 0
@@ -825,9 +945,9 @@ const questionsBank = [
   {
     q: "Nghị định số 118/2025/NĐ-CP ngày 09/6/2025 của Chính phủ quy định tổ chức, cá nhân có yêu cầu giải quyết thủ tục hành chính không được thực hiện các hành vi nào sau đây?",
     a: [
-      "Xúc phạm uy tín của cơ quan có thẩm quyền; dùng vũ lực ; đe dọa dùng vũ lực ; xúc phạm danh dự ; nhân phẩm của cán bộ ; công chức ; viên chức trong quá trình hướng dẫn ; tiếp nhận ; giải quyết và trả kết quả giải quyết thủ tục hành chính.",
-      "Nhận xét ; đánh giá khách quan ; công bằng ; trung thực ; đúng pháp luật; đúng thực tế với việc thực hiện nhiệm vụ của cán bộ ; công chức ; viên chức trong quá trình hướng dẫn ; tiếp nhận ; giải quyết và trả kết quả giải quyết thủ tục hành chính.",
-      "Vu khống ; phản ánh ; kiến nghị ; khiếu nại ; tố cáo ; mạo danh người khác để tố cáo sai sự thật ; không có căn cứ ; không có chứng cứ chứng minh hành vi vi phạm pháp luật của cán bộ ; công chức ; viên chức trong hướng dẫn ; tiếp nhận ; giải quyết và trả kết quả giải quyết thủ tục hành chính.",
+      "Xúc phạm uy tín của cơ quan có thẩm quyền; dùng vũ lực, đe dọa dùng vũ lực, xúc phạm danh dự, nhân phẩm của cán bộ, công chức, viên chức trong quá trình hướng dẫn, tiếp nhận, giải quyết và trả kết quả giải quyết thủ tục hành chính.",
+      "Nhận xét, đánh giá khách quan, công bằng, trung thực, đúng pháp luật; đúng thực tế với việc thực hiện nhiệm vụ của cán bộ, công chức, viên chức trong quá trình hướng dẫn, tiếp nhận, giải quyết và trả kết quả giải quyết thủ tục hành chính.",
+      "Vu khống, phản ánh, kiến nghị, khiếu nại, tố cáo, mạo danh người khác để tố cáo sai sự thật, không có căn cứ, không có chứng cứ chứng minh hành vi vi phạm pháp luật của cán bộ, công chức, viên chức.",
       "Cả A & C."
     ],
     correct: 3
@@ -837,8 +957,8 @@ const questionsBank = [
     a: [
       "Lấy sự hài lòng của tổ chức, cá nhân là thước đo chất lượng và hiệu quả phục vụ của cán bộ, công chức, viên chức và cơ quan có thẩm quyền.",
       "Làm việc theo chế độ tập thể, quyết định theo đa số.",
-      "Quá trình giải quyết thủ tục hành chính được đôn đốc ; kiểm tra ; theo dõi ; giám sát ; đánh giá bằng các phương thức khác nhau trên cơ sở đẩy mạnh ứng dụng công nghệ thông tin và có sự tham gia của tổ chức ; cá nhân.",
-      "Cán bộ ; công chức ; viên chức ; cơ quan có thẩm quyền thực hiện trách nhiệm giải trình về thực thi công vụ trong giải quyết thủ tục hành chính theo quy định của pháp luật."
+      "Quá trình giải quyết thủ tục hành chính được đôn đốc, kiểm tra, theo dõi, giám sát, đánh giá bằng các phương thức khác nhau trên cơ sở đẩy mạnh ứng dụng công nghệ thông tin.",
+      "Cán bộ, công chức, viên chức, cơ quan có thẩm quyền thực hiện trách nhiệm giải trình về thực thi công vụ trong giải quyết thủ tục hành chính."
     ],
     correct: 1
   },
@@ -878,12 +998,12 @@ const questionsBank = [
     correct: 0
   },
   {
-    q: "Theo quy định tại Nghị định số 42/2022/NĐ-CP ngày 24/6/2022 của Chính phủ thì Dịch vụ công trực tuyến toàn trình của cơ quan nhà nước là gì?",
+    q: "Theo quy định tại Nghị định số 42/2022/NĐ-CP ngày 24/6/2022 của Chính phủ thì \"Dịch vụ công trực tuyến toàn trình\" của cơ quan nhà nước là gì?",
     a: [
       "Là dịch vụ bảo đảm chỉ cung cấp toàn bộ thông tin việc thực hiện thủ tục hành chính trên môi trường mạng.",
-      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính ; việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tiếp hoặc qua dịch vụ bưu chính công ích.",
-      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính ; việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tuyến hoặc qua dịch vụ bưu chính công ích.",
-      "Là dịch vụ bảo đảm cung cấp một phần thông tin về thủ tục hành chính ; việc thực hiện và giải quyết thủ tục hành chính thực hiện trên môi trường mạng."
+      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tiếp hoặc qua dịch vụ bưu chính công ích.",
+      "Là dịch vụ bảo đảm cung cấp toàn bộ thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính đều được thực hiện trên môi trường mạng. Việc trả kết quả được thực hiện trực tuyến hoặc qua dịch vụ bưu chính công ích.",
+      "Là dịch vụ bảo đảm cung cấp một phần thông tin về thủ tục hành chính, việc thực hiện và giải quyết thủ tục hành chính thực hiện trên môi trường mạng."
     ],
     correct: 2
   },
@@ -963,10 +1083,10 @@ const questionsBank = [
     correct: 0
   },
   {
-    q: "Thời gian giải quyết thủ tục hành chính Đăng ký khai sinh - Đăng ký thường trú - Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi là bao lâu?",
+    q: "Thời gian giải quyết thủ tục hành chính \"Đăng ký khai sinh - Đăng ký thường trú - Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\" là bao lâu?",
     a: [
-      "Không quá 03 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định ; trường hợp phải xác minh thì không quá 05 ngày làm việc. Nếu tiếp nhận hồ sơ sau 15 giờ thì thời gian được tính bắt đầu từ ngày làm việc tiếp theo.",
-      "Không quá 05 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định ; trường hợp phải xác minh thì không quá 05 ngày làm việc. Nếu tiếp nhận hồ sơ sau 15 giờ thì thời gian được tính bắt đầu từ ngày làm việc tiếp theo.",
+      "Không quá 03 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định, trường hợp phải xác minh thì không quá 05 ngày làm việc.",
+      "Không quá 05 ngày làm việc kể từ khi các cơ quan có thẩm quyền giải quyết nhận đầy đủ hồ sơ theo quy định, trường hợp phải xác minh thì không quá 05 ngày làm việc.",
       "Trong ngày làm việc, kể từ khi tiếp nhận hồ sơ.",
       "Tất cả đáp án đều sai."
     ],
@@ -1240,10 +1360,10 @@ const questionsBank = [
   {
     q: "Nội dung nào sau đây không thuộc thành phần hồ sơ thủ tục cấp Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm?",
     a: [
-      "Bản thuyết minh về cơ sở vật chất ; trang thiết bị ; dụng cụ bảo đảm điều kiện vệ sinh an toàn thực phẩm theo quy định của cơ quan quản lý nhà nước có thẩm quyền.",
+      "Bản thuyết minh về cơ sở vật chất, trang thiết bị, dụng cụ bảo đảm điều kiện vệ sinh an toàn thực phẩm.",
       "Hợp đồng cung cấp thực phẩm.",
-      "Danh sách người sản xuất thực phẩm ; kinh doanh dịch vụ ăn uống đã được tập huấn kiến thức an toàn thực phẩm có xác nhận của chủ cơ sở.",
-      "Giấy xác nhận đủ sức khỏe của chủ cơ sở và người trực tiếp kinh doanh dịch vụ ăn uống do cơ sở khám bệnh ; chữa bệnh đủ điều kiện cấp."
+      "Danh sách người sản xuất thực phẩm, kinh doanh dịch vụ ăn uống đã được tập huấn kiến thức an toàn thực phẩm.",
+      "Giấy xác nhận đủ sức khỏe của chủ cơ sở và người trực tiếp kinh doanh dịch vụ ăn uống."
     ],
     correct: 1
   },
@@ -1263,11 +1383,11 @@ const questionsBank = [
     correct: 1
   },
   {
-    q: "Anh A sinh sống cùng với mẹ và em gái ruột ; thường trú tại xã Gia Kiệm ; tỉnh Đồng Nai. Anh A đang là công nhân tại Công ty X tại xã Trảng Bom ; tỉnh Đồng Nai. Thời gian làm việc của anh A từ 7h00 đến 17h00 ; từ thứ hai đến thứ bảy. Anh A hiện đang cần Giấy xác nhận tình trạng hôn nhân ; để thực hiện việc mua nhà ở xã hội. Tuy nhiên do tính chất công việc nên anh A không thể nghỉ việc để đến UBND xã Gia Kiệm để thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân. Theo bạn ; anh A nên giải quyết vấn đề trên như thế nào?",
+    q: "Anh A sinh sống cùng với mẹ và em gái ruột, thường trú tại xã Gia Kiệm, tỉnh Đồng Nai. Anh A hiện đang cần Giấy xác nhận tình trạng hôn nhân. Do tính chất công việc nên anh A không thể nghỉ việc để đến UBND xã Gia Kiệm. Theo bạn, anh A nên giải quyết vấn đề trên như thế nào?",
     a: [
-      "Anh A có thể ủy quyền cho em gái ruột bằng Văn bản ủy quyền ; được chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân cho anh A ; hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
-      "Anh A nộp trực tuyến tại nhà qua cổng Dịch vụ công quốc gia hoặc ủy quyền cho em gái ruột bằng Văn bản ủy quyền ; không phải chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân cho anh A ; hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia",
-      "Em gái ruột của anh A đến UBND xã Gia Kiệm thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân cho anh A ; mà không cần Văn bản ủy quyền ; hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Anh A có thể ủy quyền cho em gái ruột bằng Văn bản ủy quyền, được chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Anh A nộp trực tuyến tại nhà qua cổng Dịch vụ công quốc gia hoặc ủy quyền cho em gái ruột bằng Văn bản ủy quyền, không phải chứng thực để đến UBND xã Gia Kiệm thực hiện thủ tục, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
+      "Em gái ruột của anh A đến UBND xã Gia Kiệm thực hiện thủ tục cho anh A, mà không cần Văn bản ủy quyền, hoặc Anh A tự nộp hồ sơ trên Cổng Dịch vụ công quốc gia.",
       "Tất cả các đáp án đều sai."
     ],
     correct: 1
@@ -1303,7 +1423,7 @@ const questionsBank = [
     correct: 2
   },
   {
-    q: "Ngày 10/4/2026 ; ông D đến Trung tâm Phục vụ hành chính công xã Gia Kiệm để nộp hồ sơ thực hiện trợ cấp hưu trí xã hội. Tại đây ; công chức tiếp nhận hồ sơ đã tiếp nhận hồ sơ của Ông D. Không may ; ngày 13/4/2026 ; Ông D bị tai nạn giao thông và qua đời. UBND xã Gia Kiệm chưa ban hành quyết định hưởng trợ cấp hưu trí xã hội đối với ông D. Theo bạn ; quyền lợi của ông D được hưởng như thế nào?",
+    q: "Ngày 10/4/2026, ông D đến Trung tâm Phục vụ hành chính công xã Gia Kiệm để nộp hồ sơ thực hiện trợ cấp hưu trí xã hội. Ngày 13/4/2026, Ông D bị tai nạn giao thông và qua đời. UBND xã Gia Kiệm chưa ban hành quyết định hưởng trợ cấp hưu trí xã hội đối với ông D. Theo bạn, quyền lợi của ông D được hưởng như thế nào?",
     a: [
       "Không được hưởng bất kỳ trợ cấp nào.",
       "Được hưởng trợ cấp hưu trí xã hội trong 03 tháng.",
@@ -1323,11 +1443,11 @@ const questionsBank = [
     correct: 2
   },
   {
-    q: "Anh A và Chị C thường trú tại xã Gia Kiệm ; hiện anh chị đang làm việc tại Thành phố Hồ Chí Minh. Anh A và Chị C mới sinh con và muốn thực hiện thủ tục Đăng ký khai sinh – Đăng ký thường trú – Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi tại UBND xã Gia Kiệm thông qua hình thức nộp hồ sơ trực tuyến trên cổng Dịch vụ công Quốc gia. Theo bạn ; anh A và Chị C cần phải thực hiện các bước thao tác như thế nào?",
+    q: "Anh A và Chị C thường trú tại xã Gia Kiệm, hiện anh chị đang làm việc tại Thành phố Hồ Chí Minh. Anh A và Chị C mới sinh con và muốn thực hiện thủ tục \"Đăng ký khai sinh – Đăng ký thường trú – Cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi\" tại UBND xã Gia Kiệm thông qua hình thức nộp hồ sơ trực tuyến. Theo bạn, anh A và Chị C cần phải thực hiện các bước thao tác như thế nào?",
     a: [
-      "Vào cổng Dịch vụ công quốc gia Đăng nhập (VNeID) Lựa chọn loại đăng ký khai sinhcơ quan đăng ký khai sinh (UBND xã Gia Kiệm)cơ quan đăng ký thường trú (Công an xã Gia Kiệm)Cơ quan bảo hiểm xã hội (Bảo hiểm xã hội cơ sở Trảng Bom) Điền các thông tin vào biểu mẫu theo yêu cầu Đính kèm Giấy chứng sinh (bản điện tử hoặc bản scan) và tờ khai đăng ký thường trú Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
-      "Vào cổng Dịch vụ công bộ công an  Đăng nhập (VNeID) Lựa chọn loại đăng ký khai sinhcơ quan đăng ký khai sinh (UBND xã Gia Kiệm)cơ quan đăng ký thường trú (Công an xã Gia Kiệm)Cơ quan bảo hiểm xã hội (Bảo hiểm xã hội cơ sở Trảng Bom) Điền các thông tin vào biểu mẫu theo yêu cầu Đính kèm Giấy chứng sinh (bản điện tử hoặc bản scan) và tờ khai đăng ký thường trú Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
-      "Vào cổng Dịch vụ công quốc gia  Đăng nhập (VNeID) Lựa chọn loại đăng ký khai sinhcơ quan đăng ký khai sinh (nơi đang sinh sống Tp. Hồ Chí Minh)cơ quan đăng ký thường trú (Công an phường nơi đang sinh sống)Cơ quan bảo hiểm xã hội (Bảo hiểm xã hội nơi đang sinh sống) Điền các thông tin vào biểu mẫu theo yêu cầu Đính kèm Giấy chứng sinh (bản điện tử hoặc bản scan) và tờ khai đăng ký thường trú Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Vào cổng Dịch vụ công quốc gia → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (UBND xã Gia Kiệm) → cơ quan đăng ký thường trú (Công an xã Gia Kiệm) → Cơ quan bảo hiểm xã hội → Điền các thông tin vào biểu mẫu → Đính kèm Giấy chứng sinh → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Vào cổng Dịch vụ công bộ công an → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (UBND xã Gia Kiệm) → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
+      "Vào cổng Dịch vụ công quốc gia → Đăng nhập (VNeID) → Lựa chọn loại đăng ký khai sinh → cơ quan đăng ký khai sinh (nơi đang sinh sống Tp. Hồ Chí Minh) → Lựa chọn phương thức nhận kết quả và nộp hồ sơ.",
       "Tất cả đáp án trên đều đúng."
     ],
     correct: 0
@@ -1343,7 +1463,7 @@ const questionsBank = [
     correct: 2
   },
   {
-    q: "Ngày 15/12/2025 ; Anh Nguyễn Văn A và chị Trần Thị B đến UBND xã Gia Kiệm để thực hiện thủ tục đăng ký kết hôn. Không may ; ngày 18/04/2026 ; anh A qua đời vì tai nạn lao động ; lúc này chị B đang mang thai được 05 tháng. Theo bạn ; trường hợp này ; khi thực hiện thủ tục đăng ký khai sinh cho bé ; thông tin về người cha được xác định như thế nào?",
+    q: "Ngày 15/12/2025, Anh Nguyễn Văn A và chị Trần Thị B đến UBND xã Gia Kiệm để thực hiện thủ tục đăng ký kết hôn. Ngày 18/04/2026, anh A qua đời vì tai nạn lao động, lúc này chị B đang mang thai được 05 tháng. Khi thực hiện thủ tục đăng ký khai sinh cho bé, thông tin về người cha được xác định như thế nào?",
     a: [
       "Thông tin về người cha là ông Nguyễn Văn A.",
       "Phần thông tin về cha được để trống.",
@@ -1353,15 +1473,16 @@ const questionsBank = [
     correct: 0
   },
   {
-    q: "Chị C là công dân thường trú tại xã Gia Kiệm ; hiện đang làm việc tại Thành phố Hồ Chí Minh. Ngày 15/5/2026 ; Chị C đến UBND xã Gia Kiệm để thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân ; với mục đích kết hôn với chị D Giới tính Nữ ; quốc tịch Hoa Kỳ tại cơ quan có thẩm quyền của Hoa Kỳ ở Hoa Kỳ. Theo bạn ; hồ sơ đề nghị cấp Giấy xác nhận tình trạng hôn nhân của chị C có được UBND xã Gia Kiệm tiếp nhận không?",
+    q: "Chị C là công dân thường trú tại xã Gia Kiệm. Ngày 15/5/2026, Chị C đến UBND xã Gia Kiệm để thực hiện thủ tục cấp Giấy xác nhận tình trạng hôn nhân, với mục đích kết hôn với chị D (Giới tính Nữ, quốc tịch Hoa Kỳ) tại cơ quan có thẩm quyền của Hoa Kỳ. Theo bạn, hồ sơ của chị C có được UBND xã Gia Kiệm tiếp nhận không?",
     a: [
       "Có. UBND xã Gia Kiệm tiếp nhận và giải quyết hồ sơ cấp Giấy xác nhận tình trạng hôn nhân của chị C.",
-      "Không. UBND xã Gia Kiệm từ chối ; vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để kết hôn với người cùng giới tính.",
-      "Không. UBND xã Gia Kiệm từ chối ; vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để đăng ký kết hôn tại cơ quan có thẩm quyền của nước khác.",
+      "Không. UBND xã Gia Kiệm từ chối, vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để kết hôn với người cùng giới tính.",
+      "Không. UBND xã Gia Kiệm từ chối, vì pháp luật Việt Nam quy định không cấp xác nhận tình trạng hôn nhân để đăng ký kết hôn tại cơ quan có thẩm quyền của nước khác.",
       "Cả B & C đều đúng."
     ],
     correct: 1
   }
+
 ];
 </script>
 
@@ -1379,7 +1500,11 @@ const TIME_LIMIT = 20 * 60; // giây
 // ══════════════════════════════════════════════
 let shuffled = [], startTime, countdown;
 let timeLeft = TIME_LIMIT;
-let userAnswers = {}; // { questionIndex: answerIndex }
+let userAnswers = {};
+let currentQIndex = 0;
+let lockTimer = null;
+let lockSeconds = 0;
+const MIN_READ_SECONDS = 12; // giây bắt buộc đọc đề trước khi chọn // { questionIndex: answerIndex }
 let finalResult = null;
 
 // ══════════════════════════════════════════════
@@ -1472,7 +1597,7 @@ function updateTimer() {
   const s = timeLeft % 60;
   const el = document.getElementById("timer-display");
   el.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
-  el.className = '';
+  el.className = 'topbar-timer';
   if (timeLeft <= 300) el.classList.add('danger');
   else if (timeLeft <= 600) el.classList.add('warning');
 }
@@ -1481,69 +1606,134 @@ function updateTimer() {
 //  RENDER BÀI THI
 // ══════════════════════════════════════════════
 function renderQuiz() {
-  const content = document.getElementById("quiz-content");
-  const navGrid = document.getElementById("nav-grid");
-  content.innerHTML = "";
-  navGrid.innerHTML = "";
   userAnswers = {};
+  currentQIndex = 0;
 
-  // Random câu hỏi, giữ nguyên thứ tự đáp án
+  // Random câu hỏi
   const pool = [...questionsBank].sort(() => Math.random() - 0.5);
   shuffled = pool.slice(0, TOTAL_QUESTIONS);
 
-  const letters = ['A', 'B', 'C', 'D', 'E'];
+  // Build dots navigation
+  renderDots();
+  showQuestion(0);
+}
 
-  shuffled.forEach((q, i) => {
-    // Card câu hỏi
-    const card = document.createElement("div");
-    card.className = "question-card";
-    card.id = "q-card-" + i;
+function renderDots() {
+  const dotsEl = document.getElementById('modal-dots');
+  if (!dotsEl) return;
+  dotsEl.innerHTML = '';
+  shuffled.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'modal-dot' + (i === 0 ? ' current' : '');
+    d.id = 'dot-' + i;
+    d.title = 'Câu ' + (i + 1);
+    d.onclick = () => goToQuestion(i);
+    dotsEl.appendChild(d);
+  });
+}
 
-    let html = `<div class="question-number">Câu ${i + 1} / ${TOTAL_QUESTIONS}</div>`;
-    html += `<div class="question-text">${q.q}</div>`;
+function showQuestion(idx) {
+  currentQIndex = idx;
+  const q = shuffled[idx];
+  const letters = ['A','B','C','D','E'];
+  const isLast = idx === shuffled.length - 1;
 
-    q.a.forEach((ans, ai) => {
-      html += `
-        <label class="answer-option" id="opt-${i}-${ai}">
-          <input type="radio" name="q${i}" value="${ai}" onchange="selectAnswer(${i},${ai})">
-          <span><b>${letters[ai]}.</b> ${ans}</span>
-        </label>`;
-    });
+  // Header
+  document.getElementById('modal-q-badge').textContent = `Câu ${idx + 1} / ${TOTAL_QUESTIONS}`;
+  document.getElementById('q-cur-num').textContent = idx + 1;
+  document.getElementById('q-total-num').textContent = TOTAL_QUESTIONS;
 
-    card.innerHTML = html;
-    content.appendChild(card);
+  // Question text
+  document.getElementById('modal-question-text').textContent = q.q;
 
-    // Nav button
-    const navBtn = document.createElement("div");
-    navBtn.className = "nav-btn";
-    navBtn.id = "nav-btn-" + i;
-    navBtn.textContent = i + 1;
-    navBtn.onclick = () => document.getElementById("q-card-" + i).scrollIntoView({ behavior: 'smooth', block: 'center' });
-    navGrid.appendChild(navBtn);
+  // Reset lock — không khóa nữa, cho chọn ngay
+  const lockEl = document.getElementById('modal-lock');
+  lockEl.className = 'modal-lock unlocked';
+  lockEl.innerHTML = '<span class="lock-icon">🔓</span> Đang thi';
+  if (lockTimer) clearInterval(lockTimer);
+
+  // Options — mở ngay không cần chờ
+  const optsEl = document.getElementById('modal-options');
+  optsEl.innerHTML = '';
+  q.a.forEach((ans, ai) => {
+    const div = document.createElement('div');
+    div.className = 'modal-opt' + (userAnswers[idx] === ai ? ' selected' : '');
+    div.id = `modal-opt-${idx}-${ai}`;
+    div.innerHTML = `<div class="opt-letter-badge">${letters[ai]}</div><span>${ans}</span>`;
+    div.onclick = () => selectAnswer(idx, ai);
+    optsEl.appendChild(div);
   });
 
-  updateProgress();
+  // Nav buttons
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  btnPrev.disabled = idx === 0;
+  btnNext.textContent = isLast ? 'Xem lại →' : 'Câu sau →';
+  btnNext.disabled = false;
+
+  // Dots
+  document.querySelectorAll('.modal-dot').forEach((d, i) => {
+    d.classList.toggle('current', i === idx);
+  });
+
+  // Restore selection if already answered
+  if (userAnswers[idx] !== undefined) {
+    unlockOptions();
+  }
+
+  // Restart animation
+  const modal = document.getElementById('question-modal');
+  modal.style.animation = 'none';
+  modal.offsetHeight; // reflow
+  modal.style.animation = '';
+}
+
+function unlockOptions() {
+  document.querySelectorAll(`#modal-options .modal-opt`).forEach(opt => {
+    opt.classList.remove('locked-opt');
+  });
+}
+
+function goToQuestion(idx) {
+  showQuestion(idx);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevQuestion() {
+  if (currentQIndex > 0) goToQuestion(currentQIndex - 1);
+}
+
+function nextQuestion() {
+  if (currentQIndex < shuffled.length - 1) {
+    goToQuestion(currentQIndex + 1);
+  } else {
+    // Cuộn xuống nút nộp bài
+    document.getElementById('submit-btn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 
 function selectAnswer(qIdx, ansIdx) {
   userAnswers[qIdx] = ansIdx;
 
-  // Highlight selected option
-  const q = shuffled[qIdx];
-  q.a.forEach((_, ai) => {
-    const opt = document.getElementById(`opt-${qIdx}-${ai}`);
-    if (opt) opt.classList.toggle('selected', ai === ansIdx);
+  // Highlight
+  document.querySelectorAll('#modal-options .modal-opt').forEach((o, ai) => {
+    o.classList.toggle('selected', ai === ansIdx);
+    o.querySelector('.opt-letter-badge').style.background = ai === ansIdx ? 'var(--red)' : '';
+    o.querySelector('.opt-letter-badge').style.color = ai === ansIdx ? '#fff' : '';
   });
 
-  // Card answered
-  const card = document.getElementById("q-card-" + qIdx);
-  if (card) card.classList.add('answered');
-
-  // Nav button answered
-  const navBtn = document.getElementById("nav-btn-" + qIdx);
-  if (navBtn) navBtn.classList.add('answered');
+  // Update dot
+  const dot = document.getElementById('dot-' + qIdx);
+  if (dot) { dot.classList.add('answered'); }
 
   updateProgress();
+}
+
+function updateProgress() {
+  const answered = Object.keys(userAnswers).length;
+  const total = shuffled.length || TOTAL_QUESTIONS;
+  document.getElementById('progress-text').textContent = `${answered} / ${total} đã trả lời`;
+  document.getElementById('progress-fill').style.width = `${(answered / total) * 100}%`;
 }
 
 function updateProgress() {
